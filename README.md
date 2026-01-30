@@ -12,42 +12,38 @@ alibaba dragonwell jdk
 
 ## 构建步骤
 
-请提前使用`rm-jdk.sh`文件清理jdk非必要文件后，重新压缩成.tar.gz文件
+请提前使用`jdk8_clear.cmd`文件清理jdk非必要文件
 
-1. 拷贝jdk**.tar.gz文件到jdk目录下面
-
-2. 修改`Dockerfile`文件中的`JAVA_VERSION`
+拷贝 jdk*.zip 文件到jdk目录下面 解压缩
 
 ```bash
-JAVA_VERSION=JDK版本 # 即.tar.gz文件名称
+unzip -oq *.zip
+chmod -R 777 jdk*
 ```
 
 ### docker build
 
 ```bash
-docker build -t jdk:${version} .
-```
 
+docker build -t forchangyao/dragonwell:1.8.0_472 .
+
+docker tag forchangyao/dragonwell:1.8.0_472 forchangyao/dragonwell:8
+
+docker push -a forchangyao/dragonwell
+
+```
 ### docker run
 
 ```bash
 # 验证
-docker run --name jdk -it jdk:${version} sh
+docker run --rm -it forchangyao/dragonwell:1.8.0_472 sh
+
+docker run --rm -it fank243/dragonwell:1.8.0_362 sh
+
+java -XshowSettings:properties -version
 
 java -version
 
 # +0800 时区验证
 date -R
-```
-
-### docker push
-
-```bash
-docker login
-
-# tag
-docker tag jdk:${version} fank243/dragonwell:${version}
-
-# push
-docker push fank243/dragonwell:${version}
 ```
