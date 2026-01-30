@@ -1,9 +1,4 @@
-FROM frolvlad/alpine-glibc
-
-ENV LANG=C.UTF-8
-
-# JDK 版本号
-ARG JAVA_VERSION=jdk1.8.0_472
+FROM frolvlad/alpine-glibc:alpine-3.15_glibc-2.33
 
 # 指定工作目录
 WORKDIR /usr/local/java
