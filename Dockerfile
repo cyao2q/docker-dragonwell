@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-glibc:alpine-3.15_glibc-2.33
+FROM frolvlad/alpine-glibc:alpine-3.16_glibc-2.34
 
 # 指定工作目录
 WORKDIR /usr/local/java
