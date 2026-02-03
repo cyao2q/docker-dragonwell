@@ -102,5 +102,5 @@ RUN set -eux; \
     echo "Verifying install ..."; \
     echo "java -version"; java -version; \
     echo "Complete."
-COPY --chmod=755 entrypoint.sh /__cacert_entrypoint.sh
+COPY --chmod=755 eclipse-temurin.8-jre.entrypoint.sh /__cacert_entrypoint.sh
 ENTRYPOINT ["/__cacert_entrypoint.sh"]
