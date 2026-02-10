@@ -6,9 +6,7 @@ alibaba dragonwell jdk
 
 <https://github.com/alibaba/dragonwell8>
 
-<https://github.com/alibaba/dragonwell11>
-
-<https://github.com/alibaba/dragonwell17>
+<https://hub.docker.com/r/forchangyao/dragonwell>
 
 ## 构建步骤
 
